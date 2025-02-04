@@ -20,6 +20,8 @@ public class BowController : MonoBehaviour
     [Header("Arrow")]
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowSpawn;
+    [SerializeField] private float maxShootSpeed = 40f;
+    [SerializeField] private float minShootSpeed = 10f;
     private GameObject currentArrow;
     private Vector3[] topStringPoints = new Vector3[2];
     private Vector3[] bottomStringPoints = new Vector3[2];
@@ -28,6 +30,7 @@ public class BowController : MonoBehaviour
     private bool isStringPulled;
     private float pullState;
     
+    //couldn't find a good way to turn of string grabbing when bow not held. disabling grab collider etc. doesnt work for some reason.
 
     private void Awake()
     {
@@ -79,10 +82,12 @@ public class BowController : MonoBehaviour
     private void HandleBowGrabbed()
     {
         isBowHeld = true;
+        Debug.Log("bow held");
     }
     private void HandleBowReleased()
     {
         isBowHeld = false;
+        Debug.Log("bow released");
     }
     private void OnStringInteractableStateChange(InteractableStateChangeArgs args)
     {
@@ -102,7 +107,7 @@ public class BowController : MonoBehaviour
     }
     private void HandleStringReleased()
     {
-        if (isStringPulled) ReleaseArrow();
+        if(isStringPulled) ReleaseArrow();
     }
     private void StartStringPull()
     {
@@ -117,6 +122,12 @@ public class BowController : MonoBehaviour
         if(currentArrow != null)
         {
             //arrow logic here?
+            float pullAmount = pullState / maxPullDistance;
+            float shootForce = Mathf.Lerp(minShootSpeed, maxShootSpeed, pullAmount);
+            currentArrow.transform.parent = null;
+            //arrow script = getcomp arrow, script.Launch(shootForce), currentarrow = null
+            Destroy(currentArrow);
+            
         }
         stringGrabPoint.position = stringRestPos.position;
         stringPullPoint.position = stringRestPos.position;
@@ -127,13 +138,13 @@ public class BowController : MonoBehaviour
         Vector3 pullDirection = stringGrabPoint.position - stringRestPos.position;
         float pullDistance = Mathf.Clamp(Vector3.Dot(pullDirection, transform.forward), 0, maxPullDistance);
         pullState = pullDistance;
-        Vector3 newStringPosition = stringRestPos.position - (-transform.forward * pullDistance); //temp fix rotated wrong
+        Vector3 newStringPosition = stringRestPos.position - (-transform.forward * pullDistance); //temp fix bow rotated wrong
         stringPullPoint.position = newStringPosition;
-        Debug.Log(pullState);
+        //Debug.Log(pullState);
         if (currentArrow != null)
         {
             currentArrow.transform.position = newStringPosition;
-            currentArrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 180, 0); //temp fix rotated wrong
+            currentArrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 180, 0); //temp fix arrow rotated wrong
         }
     }
 }
