@@ -1,12 +1,16 @@
 using Oculus.Interaction;
 using UnityEngine;
 using System;
+using Oculus.Interaction.HandGrab;
 
 public class BowController : MonoBehaviour
 {
     [Header("Grab components")]
     [SerializeField] private GrabInteractable bowInteractable;
     [SerializeField] private GrabInteractable stringInteractable;
+    //test
+    //[SerializeField] private HandGrabInteractable bowHandInteractable;
+    //[SerializeField] private HandGrabInteractable stringHandInteractable;
     [Header("String")]
     [SerializeField] private Transform topStringAnchor;
     [SerializeField] private Transform bottomStringAnchor;
@@ -37,11 +41,17 @@ public class BowController : MonoBehaviour
         SetupLineRenderer();
         bowInteractable.WhenStateChanged += OnBowInteractableStateChange;
         stringInteractable.WhenStateChanged += OnStringInteractableStateChange;
+        //test
+        //bowHandInteractable.WhenStateChanged += OnBowInteractableStateChange;
+        //stringInteractable.WhenStateChanged += OnStringInteractableStateChange;
     }
     private void OnDestroy()
     {
         bowInteractable.WhenStateChanged -= OnBowInteractableStateChange;
         stringInteractable.WhenStateChanged -= OnStringInteractableStateChange;
+        //test
+        //bowHandInteractable.WhenStateChanged -= OnBowInteractableStateChange;
+        //stringInteractable.WhenStateChanged -= OnStringInteractableStateChange;
     }
     private void SetupLineRenderer()
     {
