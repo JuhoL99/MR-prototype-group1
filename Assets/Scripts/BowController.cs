@@ -125,9 +125,9 @@ public class BowController : MonoBehaviour
             float pullAmount = pullState / maxPullDistance;
             float shootForce = Mathf.Lerp(minShootSpeed, maxShootSpeed, pullAmount);
             currentArrow.transform.parent = null;
-            //arrow script = getcomp arrow, script.Launch(shootForce), currentarrow = null
-            Destroy(currentArrow);
-            
+            Arrow arrowScript = currentArrow.GetComponent<Arrow>();
+            arrowScript.Launch(shootForce);
+            currentArrow = null; 
         }
         stringGrabPoint.position = stringRestPos.position;
         stringPullPoint.position = stringRestPos.position;
