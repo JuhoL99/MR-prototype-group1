@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3455895088297230003}
   - component: {fileID: 7430629992785220802}
+  - component: {fileID: 7820554078758372964}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,5 +45,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77d81020da7afe4a9bd441d432e9dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttachedToWater:
+    m_PersistentCalls:
+      m_Calls: []
+  onDetachedFromWater:
+    m_PersistentCalls:
+      m_Calls: []
   holdingFish: 0
-  waterLevel: 0
+  waterLevel: 0.5
+--- !u!114 &7820554078758372964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231178333876589847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97158904ed860744899de8aecee62e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBiteTime: 3
+  maxBiteTime: 13
+  catchChange: 0.5
+  fishLine: {fileID: 0}
+  fishPrefab: {fileID: 7795787764843803881, guid: 57beb1fab2041c541a122758fafed928, type: 3}

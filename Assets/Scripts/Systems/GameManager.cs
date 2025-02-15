@@ -3,8 +3,8 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private UnityEvent onAttachedToWater = new UnityEvent();
-    private UnityEvent onDetachedFromWater = new UnityEvent();
+    public UnityEvent onAttachedToWater = new UnityEvent();
+    public UnityEvent onDetachedFromWater = new UnityEvent();
 
     [Header("Flags")]
     public bool holdingFish = false;
@@ -26,8 +26,20 @@ public class GameManager : MonoBehaviour
         if(attached) onAttachedToWater?.Invoke();
         else onDetachedFromWater?.Invoke();
     }
+    public void FishCaughtEvent()
+    {
+        holdingFish = true;
+    }
+    public void FishGrabbedEvent()
+    {
+        holdingFish = false;
+    }
     private void TestFunc()
     {
         Debug.Log("ATTACHED TO WATER");
+    }
+    public void TestPrint()
+    {
+        Debug.Log("test print");
     }
 }

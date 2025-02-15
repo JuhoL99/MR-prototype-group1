@@ -25,6 +25,7 @@ public class Bobber : MonoBehaviour
         waterLevel = gameManager.waterLevel;
         lineRenderer = GetComponent<LineRenderer>();
         SetupLineRenderer();
+        gameManager.onDetachedFromWater.AddListener(UnlockBobber);
     }
     private void Update()
     {
@@ -98,6 +99,9 @@ public class Bobber : MonoBehaviour
         isLocked = false;
         isCheckingDepth = false;
         rb.isKinematic = false;
-        gameManager.AttachEvent(false);
+    }
+    public Transform HookPos()
+    {
+        return transform.GetChild(transform.childCount - 1).transform;
     }
 }

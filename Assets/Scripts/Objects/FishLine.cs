@@ -20,7 +20,9 @@ public class FishLine : MonoBehaviour
     [Header("Other")]
     [SerializeField] private Transform attach;
     [SerializeField] private GameObject bobber;
+    [SerializeField] private Transform hookAttach;
     private GameObject bobberObject;
+    private Bobber bobberScript;
 
     private LineRenderer lineRenderer;
     private GameObject[] segments;
@@ -41,6 +43,9 @@ public class FishLine : MonoBehaviour
         UpdateLineLength();
         UpdateLineRenderer();
         segments[0].transform.position = attach.position;
+        if(bobber == null) return;
+        hookAttach.position = GetHookTransform().position;
+        hookAttach.rotation = GetHookTransform().rotation;
     }
     private void InitializeLine()
     {
@@ -86,12 +91,16 @@ public class FishLine : MonoBehaviour
         segments[0].GetComponent<Rigidbody>().isKinematic = true;
         segments[0].transform.position = transform.position;
         bobberObject = Instantiate(bobber, segments[segmentCount-1].transform.position, Quaternion.identity);
+        bobberScript = bobberObject.GetComponent<Bobber>();
         bobberObject.GetComponent<FixedJoint>().connectedBody = segments[segmentCount-1].GetComponent<Rigidbody>();
     }
     private void HandleInput()
     {
+        isExtending = OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.RTouch);
+        isRetracting = OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.RTouch);
+        /*
         isExtending = Input.GetKey(KeyCode.E);
-        isRetracting = Input.GetKey(KeyCode.R);
+        isRetracting = Input.GetKey(KeyCode.R);*/
     }
     private void UpdateLineLength()
     {
@@ -122,6 +131,10 @@ public class FishLine : MonoBehaviour
     public Vector3 GetEndPoint()
     {
         return segments[segmentCount - 1].transform.position;
+    }
+    public Transform GetHookTransform()
+    {
+        return bobberScript.HookPos();
     }
     public void SetStartPoint(Vector3 position)
     {
