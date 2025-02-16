@@ -5,7 +5,7 @@ public class Buoyancy : MonoBehaviour
     [Header("Buoyancy Forces")]
     [SerializeField] private float buoyancyForce = 15f;
     [SerializeField] private float damping = 0.5f;
-    private GameManager gameManager;
+    private FishingSystem fishingSystem;
     private float waterLevel;
     private Rigidbody rb;
     private float initialDrag;
@@ -13,11 +13,11 @@ public class Buoyancy : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GameManager.instance;
+        fishingSystem = FishingSystem.instance;
         rb = GetComponent<Rigidbody>();
         initialDrag = rb.linearDamping;
         initialAngularDrag = rb.angularDamping;
-        waterLevel = gameManager.waterLevel;
+        waterLevel = fishingSystem.WaterLevel;
     }
     private void FixedUpdate()
     {

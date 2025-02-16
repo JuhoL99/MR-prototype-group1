@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2621299137082974852}
   m_Layer: 0
   m_Name: Effect Mesh
-  m_TagString: Untagged
+  m_TagString: CanStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnOnStart: 1
-  MeshMaterial: {fileID: 2100000, guid: 599b01c5f1d17436c89b88cc04257314, type: 2}
-  Colliders: 0
+  MeshMaterial: {fileID: 2100000, guid: e9e4a775a2be5f745b4199e9577651af, type: 2}
+  Colliders: 1
   CutHoles: 0
   castShadows: 1
   hideMesh: 1
@@ -55,4 +55,4 @@ MonoBehaviour:
   - WallU: 5
     WallV: 2
     AnchorUV: 1
-  Labels: 49151
+  Labels: 1

@@ -160,7 +160,19 @@ MonoBehaviour:
         m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6974373732914538807}
+        m_TargetAssemblyTypeName: FishManager, Assembly-CSharp
+        m_MethodName: HandleFishReleased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenMove:
     m_PersistentCalls:
       m_Calls: []
@@ -268,10 +280,10 @@ PrefabInstance:
       addedObject: {fileID: 5130112076417389247}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e518f7e10dbaec84db8902fd4fb32634, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6172100344304112038}
+      addedObject: {fileID: 6591755684915570135}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e518f7e10dbaec84db8902fd4fb32634, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6591755684915570135}
+      addedObject: {fileID: 7768783053489556638}
   m_SourcePrefab: {fileID: 100100000, guid: e518f7e10dbaec84db8902fd4fb32634, type: 3}
 --- !u!4 &7456803229551668819 stripped
 Transform:
@@ -323,27 +335,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6172100344304112038
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7795787764843803881}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.38701418, y: 0.18019304, z: 0.07764818}
-  m_Center: {x: 0.18387558, y: 0.025702236, z: 0.0000000037252903}
 --- !u!65 &6591755684915570135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -365,3 +356,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38701418, y: 0.18019304, z: 0.07764818}
   m_Center: {x: 0.18387558, y: 0.025702236, z: 0.0000000037252903}
+--- !u!144 &7768783053489556638
+CharacterJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795787764843803881}
+  serializedVersion: 3
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0.11579876, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_SwingAxis: {x: 0, y: 1, z: 0}
+  m_TwistLimitSpring:
+    spring: 0
+    damper: 0
+  m_LowTwistLimit:
+    limit: -20
+    bounciness: 0
+    contactDistance: 0
+  m_HighTwistLimit:
+    limit: 70
+    bounciness: 0
+    contactDistance: 0
+  m_SwingLimitSpring:
+    spring: 0
+    damper: 0
+  m_Swing1Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_Swing2Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_EnableProjection: 0
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1

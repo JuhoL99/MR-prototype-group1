@@ -13,7 +13,7 @@ public class Bobber : MonoBehaviour
     private float waterLevel;
     private LineRenderer lineRenderer;
     private Transform[] lineRenderPositions;
-    private GameManager gameManager;
+    private FishingSystem fishingSystem;
     private Rigidbody rb;
     private bool isCheckingDepth = false;
     private bool isLocked = false;
@@ -21,11 +21,11 @@ public class Bobber : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        gameManager = GameManager.instance;
-        waterLevel = gameManager.waterLevel;
+        fishingSystem = FishingSystem.instance;
+        waterLevel = fishingSystem.WaterLevel;
         lineRenderer = GetComponent<LineRenderer>();
         SetupLineRenderer();
-        gameManager.onDetachedFromWater.AddListener(UnlockBobber);
+        fishingSystem.onDetachedFromWater.AddListener(UnlockBobber);
     }
     private void Update()
     {
@@ -34,7 +34,7 @@ public class Bobber : MonoBehaviour
         {
             UnlockBobber();
         }
-        if (!isLocked && !gameManager.holdingFish)
+        if (!isLocked && !fishingSystem.RodHoldingFish)
         {
             CheckIfFloating();
         }
@@ -90,9 +90,9 @@ public class Bobber : MonoBehaviour
         isLocked = true;
         rb.isKinematic = true;
         Vector3 lockedPosition = transform.position;
-        lockedPosition.y = waterLevel;
+        //lockedPosition.y = waterLevel;
         transform.position = lockedPosition;
-        gameManager.AttachEvent(true);
+        fishingSystem.AttachEvent(true);
     }
     public void UnlockBobber()
     {
