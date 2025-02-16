@@ -20,6 +20,10 @@ public class FishStatsUI : MonoBehaviour
     private void Update()
     {
         if (targetFish == null) return;
+        Vector3 offset = targetFish.forward * 0.9f;
+        transform.position = targetFish.position + offset;
+        transform.LookAt(Camera.main.transform);
+        transform.Rotate(0, 180, 0);
     }
     private void UpdateAndShowUI(FishManager fish)
     {
@@ -31,7 +35,10 @@ public class FishStatsUI : MonoBehaviour
     }
     private void UpdateAndHideUI()
     {
-        targetFish = null;
-        fishStatsPanel.SetActive(false);
+        if(fishingSystem.HeldFishCount == 0)
+        {
+            targetFish = null;
+            fishStatsPanel.SetActive(false);
+        }
     }
 }

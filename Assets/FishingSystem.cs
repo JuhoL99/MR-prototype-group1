@@ -22,6 +22,8 @@ public class FishingSystem : MonoBehaviour
     [SerializeField] private FishSpecies[] availableFish;
     public bool RodHoldingFish => rodHoldingFish;
     private bool rodHoldingFish;
+    public int HeldFishCount => heldFishCount;
+    private int heldFishCount;
 
     private BaitType currentBait;
 
@@ -76,10 +78,12 @@ public class FishingSystem : MonoBehaviour
     public void FishGrabbedEvent(FishManager fish)
     {
         rodHoldingFish = false;
+        heldFishCount++;
         onFishGrabbed?.Invoke(fish);
     }
     public void FishDroppedEvent()
     {
+        heldFishCount = Math.Max(0, heldFishCount - 1);
         onFishReleased?.Invoke();
     }
     private void OnHookOutOfWater()
