@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &231178333876589847
+--- !u!1 &3708250969149884782
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3455895088297230003}
-  - component: {fileID: 7430629992785220802}
-  - component: {fileID: 7820554078758372964}
+  - component: {fileID: 2527295674182737995}
+  - component: {fileID: 515680383428087585}
+  - component: {fileID: 2515732282044565568}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: '[BuildingBlock] Occlusion Dependencies'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3455895088297230003
+--- !u!4 &2527295674182737995
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231178333876589847}
+  m_GameObject: {fileID: 3708250969149884782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,55 +33,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7430629992785220802
+--- !u!114 &515680383428087585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231178333876589847}
+  m_GameObject: {fileID: 3708250969149884782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77d81020da7afe4a9bd441d432e9dee, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7820554078758372964
+  blockId: ece9de6e-19c8-4f64-bb33-313ed23e6c5c
+  instanceId: 7c11a61a-0fa5-490a-88bb-c4425f0bbe58
+  version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
+--- !u!114 &2515732282044565568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231178333876589847}
+  m_GameObject: {fileID: 3708250969149884782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97158904ed860744899de8aecee62e2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 71a155ece80369d4e99bdaf5e59169b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAttachedToWater:
-    m_PersistentCalls:
-      m_Calls: []
-  onDetachedFromWater:
-    m_PersistentCalls:
-      m_Calls: []
-  onFishBite:
-    m_PersistentCalls:
-      m_Calls: []
-  onFishCaught:
-    m_PersistentCalls:
-      m_Calls: []
-  onFishGrabbed:
-    m_PersistentCalls:
-      m_Calls: []
-  onFishReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onBaitChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  waterLevel: 0.5
-  availableFish:
-  - {fileID: 11400000, guid: fb32ea12ecafe5b4b817177ad04fcd59, type: 2}
-  minBiteTime: 3
-  maxBiteTime: 13
-  catchChange: 0.5
-  fishLine: {fileID: 0}
+  _occlusionShadersMode: 2
+  _removeHands: 0
+  CustomTrackingSpace: {fileID: 0}
+  <MaskMeshFilters>k__BackingField: []
+  _cameraRig: {fileID: 0}

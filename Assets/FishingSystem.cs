@@ -16,15 +16,17 @@ public class FishingSystem : MonoBehaviour
     public UnityEvent<FishSpecies> onFishCaught = new UnityEvent<FishSpecies>();
     public UnityEvent<FishManager> onFishGrabbed = new UnityEvent<FishManager>();
     public UnityEvent onFishReleased = new UnityEvent();
+    public UnityEvent onBaitChanged = new UnityEvent();
 
     [SerializeField] private float waterLevel = 0f;
     public float WaterLevel => waterLevel;
+    public FishSpecies[] AvailableFish => availableFish;
     [SerializeField] private FishSpecies[] availableFish;
     public bool RodHoldingFish => rodHoldingFish;
     private bool rodHoldingFish;
     public int HeldFishCount => heldFishCount;
     private int heldFishCount;
-
+    public BaitType CurrentBait => currentBait;
     private BaitType currentBait;
 
     //
@@ -149,7 +151,9 @@ public class FishingSystem : MonoBehaviour
     }
     public void SetCurrentBait(BaitType baitType)
     {
+        if (isHookInWater) return;
         currentBait = baitType;
+        onBaitChanged?.Invoke();
     }
 
 }

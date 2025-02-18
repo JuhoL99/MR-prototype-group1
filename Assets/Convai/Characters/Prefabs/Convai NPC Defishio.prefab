@@ -13,6 +13,10 @@ PrefabInstance:
       value: Convai NPC Defishio
       objectReference: {fileID: 0}
     - target: {fileID: 1396428896750393342, guid: edde76b6a51b0a648a32b3a5aa94eba9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396428896750393342, guid: edde76b6a51b0a648a32b3a5aa94eba9, type: 3}
       propertyPath: m_TagString
       value: Character
       objectReference: {fileID: 0}
@@ -38,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791136576090747180, guid: edde76b6a51b0a648a32b3a5aa94eba9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.559
       objectReference: {fileID: 0}
     - target: {fileID: 6791136576090747180, guid: edde76b6a51b0a648a32b3a5aa94eba9, type: 3}
       propertyPath: m_LocalRotation.w

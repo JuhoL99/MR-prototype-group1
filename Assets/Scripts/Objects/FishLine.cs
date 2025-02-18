@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//keep rod and line as separate objects so physics work properly
 public class FishLine : MonoBehaviour
 {
     [Header("Line")]
