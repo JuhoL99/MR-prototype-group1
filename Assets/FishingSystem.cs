@@ -9,11 +9,12 @@ using Random = UnityEngine.Random;
 public class FishingSystem : MonoBehaviour
 {
     public static FishingSystem instance;
+    public FishingReel reel;
 
     public UnityEvent onAttachedToWater = new UnityEvent();
     public UnityEvent onDetachedFromWater = new UnityEvent();
     public UnityEvent<FishSpecies> onFishBite = new UnityEvent<FishSpecies>();
-    public UnityEvent<FishSpecies> onFishCaught = new UnityEvent<FishSpecies>();
+    public UnityEvent onFishCaught = new UnityEvent();
     public UnityEvent<FishManager> onFishGrabbed = new UnityEvent<FishManager>();
     public UnityEvent onFishReleased = new UnityEvent();
     public UnityEvent onBaitChanged = new UnityEvent();
@@ -37,6 +38,8 @@ public class FishingSystem : MonoBehaviour
     private Transform hook; //temporary
 
     private GameManager gameManager;
+    public bool IsRodGrabbed => isRodGrabbed;
+    private bool isRodGrabbed = false;
     private bool isHookInWater = false;
     private bool isFishingActive = false;
     private bool isMinigameActive = false;
@@ -76,6 +79,7 @@ public class FishingSystem : MonoBehaviour
     public void FishCaughtEvent()
     {
         rodHoldingFish = true;
+        onFishCaught?.Invoke();
     }
     public void FishGrabbedEvent(FishManager fish)
     {
@@ -87,6 +91,10 @@ public class FishingSystem : MonoBehaviour
     {
         heldFishCount = Math.Max(0, heldFishCount - 1);
         onFishReleased?.Invoke();
+    }
+    public void RodGrabbedEvent(bool rodGrabbed)
+    {
+        isRodGrabbed = rodGrabbed;
     }
     private void OnHookOutOfWater()
     {

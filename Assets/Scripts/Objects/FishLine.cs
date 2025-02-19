@@ -25,6 +25,7 @@ public class FishLine : MonoBehaviour
     private GameObject bobberObject;
     private Bobber bobberScript;
 
+    private FishingSystem fishingSystem;
     private LineRenderer lineRenderer;
     private GameObject[] segments;
     private SpringJoint[] joints;
@@ -34,6 +35,7 @@ public class FishLine : MonoBehaviour
     
     private void Start()
     {
+        fishingSystem = FishingSystem.instance;
         InitializeLine();
         GenerateSegments();
         ConnectSegments();
@@ -97,9 +99,21 @@ public class FishLine : MonoBehaviour
     }
     private void HandleInput()
     {
-        isExtending = OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.RTouch);
-        isRetracting = OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.RTouch);
+        if (!fishingSystem.IsRodGrabbed) return;
+        float thumbstickY = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
+        isExtending = thumbstickY > 0.5f;
+        isRetracting = thumbstickY < -0.5f;
         /*
+        if (fishingSystem.reel != null)
+        {
+            float reelInput = fishingSystem.reel.GetReelInput();
+            Debug.Log(reelInput);
+            isExtending = reelInput < 0;
+            isRetracting = reelInput > 0;
+        }
+        if (!fishingSystem.IsRodGrabbed) return;
+        isExtending = OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.RTouch); //cant use buttons because of convai chat hotkey
+        isRetracting = OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.RTouch);
         isExtending = Input.GetKey(KeyCode.E);
         isRetracting = Input.GetKey(KeyCode.R);*/
     }

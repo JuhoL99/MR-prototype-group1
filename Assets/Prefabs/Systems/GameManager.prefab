@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97158904ed860744899de8aecee62e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel: {fileID: 0}
   onAttachedToWater:
     m_PersistentCalls:
       m_Calls: []
@@ -68,7 +69,19 @@ MonoBehaviour:
       m_Calls: []
   onFishCaught:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NarrativeManager, Assembly-CSharp
+        m_MethodName: OnFishCaught
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFishGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -77,7 +90,19 @@ MonoBehaviour:
       m_Calls: []
   onBaitChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NarrativeManager, Assembly-CSharp
+        m_MethodName: OnBaitSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   waterLevel: 0.5
   availableFish:
   - {fileID: 11400000, guid: fb32ea12ecafe5b4b817177ad04fcd59, type: 2}
