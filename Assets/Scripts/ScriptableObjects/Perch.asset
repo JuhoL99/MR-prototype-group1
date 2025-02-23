@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Perch
   m_EditorClassIdentifier: 
   speciesName: Perch
-  fishPrefab: {fileID: 7795787764843803881, guid: 57beb1fab2041c541a122758fafed928, type: 3}
+  speciesDescription: Bold striped predator with distinctive spiky dorsal fins. Known
+    for their aggressive strikes and preference for deep water near structures.
+  fishPrefab: {fileID: 7271005270002683041, guid: 53d79028d7daecb4e91f089cc852072c, type: 3}
   preferredBait: 00000000
-  minWeight: 0.3
-  maxWeight: 3
-  minLength: 0.15
-  maxLength: 0.6
+  minWeight: 0.5
+  maxWeight: 2.5
+  minLength: 0.2
+  maxLength: 0.5

@@ -7,6 +7,7 @@ public class FishStatsUI : MonoBehaviour
     [SerializeField] private TMP_Text speciesNameText;
     [SerializeField] private TMP_Text weightText;
     [SerializeField] private TMP_Text lengthText;
+    [SerializeField] private TMP_Text descriptionText;
     private FishingSystem fishingSystem;
     private Transform targetFish;
 
@@ -29,6 +30,7 @@ public class FishStatsUI : MonoBehaviour
     {
         targetFish = fish.transform;
         speciesNameText.text = fish.Species.name;
+        descriptionText.text = fish.Species.speciesDescription;
         weightText.text = fish.Weight.ToString("F2") + " kg";
         lengthText.text = fish.Length.ToString("F2") + " m";
         fishStatsPanel.SetActive(true);

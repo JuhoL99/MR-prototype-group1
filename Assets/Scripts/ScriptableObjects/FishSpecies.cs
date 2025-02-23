@@ -6,6 +6,7 @@ using UnityEngine;
 public class FishSpecies : ScriptableObject
 {
     public string speciesName;
+    public string speciesDescription;
     public GameObject fishPrefab; //model
     public List<BaitType> preferredBait;
 

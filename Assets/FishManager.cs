@@ -9,6 +9,7 @@ public class FishManager : MonoBehaviour
     private FishingSystem fishingSystem;
     [SerializeField] private GrabInteractable fishGrabInteractable;
     private bool isGrabbed = false;
+    private Rigidbody rb;
     public FishSpecies Species => species;
     private FishSpecies species;
     public float Weight => weight;
@@ -20,6 +21,7 @@ public class FishManager : MonoBehaviour
     private void Start()
     {
         fishingSystem = FishingSystem.instance;
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -42,6 +44,7 @@ public class FishManager : MonoBehaviour
     public void HandleFishReleased()
     {
         fishingSystem.FishDroppedEvent();
+        //rb.isKinematic = false;
     }
     public void SetHook(Transform hook)
     {
