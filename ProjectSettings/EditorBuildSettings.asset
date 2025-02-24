@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Juho.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Convai/ConvaiXR/ConvaiMR/Scenes/Convai Demo - MR.unity
+    guid: 7415a9bd0a867c7458d86c0bdd56cccb
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d24560256617e484a9378dfbf62b1335, type: 2}
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 21a18d0b7ae10dc43b5639575f070371, type: 2}
-  m_UseUCBPForAssetBundles: 0
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e27ab232aab67bd4ca9d68fa3af45caf,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 488684d5c1456e04094e3e4aa365d192,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9cfb797f7b487ed48bc018b3aa66b3cd,
+      type: 2}

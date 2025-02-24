@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d020be6d25a1b429ff84207fd29f14, type: 3}
+  m_Name: Salmon
+  m_EditorClassIdentifier: 
+  speciesName: European Salmon
+  speciesDescription: Powerful migratory fish with silvery sides and black spots.
+    Masters of both rivers and seas, they're famous for leaping up waterfalls during
+    spawning runs.
+  fishPrefab: {fileID: 4350271958542675741, guid: 449d2d61acf184a499cea94aa359d0cb, type: 3}
+  preferredBait: 03000000
+  minWeight: 3
+  maxWeight: 15
+  minLength: 0.7
+  maxLength: 1.5
