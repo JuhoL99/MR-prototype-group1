@@ -12,6 +12,8 @@ TagManager:
   - QDSUIToggleButton
   - QDSUIIcon
   - QDSUITextSecondaryColor
+  - Overlay
+  - InventoryItem
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - Interactable
   - Outline
-  - 
+  - Overlay
   - 
   - 
   - 

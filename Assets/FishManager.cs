@@ -11,14 +11,13 @@ public class FishManager : MonoBehaviour
     private bool isGrabbed = false;
     private Rigidbody rb;
     public FishSpecies Species => species;
-    private FishSpecies species;
+    public FishSpecies species;
     public float Weight => weight;
     private float weight;
     public float Length => length;
     private float length;
 
     public GameObject InventoryElement;
-    public LayerMask uiLayerMask;
     public InventoryManager inventoryManager;
 
     private CharacterJoint joint;
@@ -26,26 +25,36 @@ public class FishManager : MonoBehaviour
     {
         fishingSystem = FishingSystem.instance;
         rb = GetComponent<Rigidbody>();
+        InventoryElement = GameObject.Find("LeftHandOverlay");
+        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        weight = Random.Range(species.minWeight, species.maxWeight);
+        length = Random.Range(species.minLength, species.maxLength);
+
     }
+
     private void Update()
     {
-        if(isGrabbed) return;
-        if(hookTransform == null) return;
-        FollowHook();
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+        if(isGrabbed){
+           return;
+        }
+        else{
+            if(hookTransform == null) return;
+            FollowHook();
+        }
+        
+        
+    }
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, uiLayerMask))
+    void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Overlay"))
         {
-            // Check if the hit object is the target UI element
-            if (hit.collider.gameObject == InventoryElement)
-            {
-                Debug.Log("GameObject is in contact with the UI element!");
-                InventoryManager.instance.AddFish(species);
-                Destroy(gameObject);
-            }
+            Debug.Log("Fish collided with UI element: " + other.name);
+            inventoryManager.AddFish(species);
+            Destroy(this.gameObject);
         }
     }
+
+
     public void GenerateStats(FishSpecies _species)
     {
         species = _species;

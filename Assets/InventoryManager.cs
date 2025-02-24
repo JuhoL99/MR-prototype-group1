@@ -9,7 +9,6 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
 
     public List<FishSpecies> fishSpecies = new List<FishSpecies>();
-    private List<FishSpecies> caughtFish = new List<FishSpecies>();
 
     public GameObject inventoryPrefab;
 
@@ -21,22 +20,19 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void AddFish(FishSpecies fish){
-        caughtFish.Add(fish);
+        fishSpecies.Add(fish);
         updateInventory();
     }
 
 
     void updateInventory(){
-
+        foreach(GameObject gm in GameObject.FindGameObjectsWithTag("InventoryItem")){
+            Destroy(gm);
+        }
         foreach (FishSpecies fish in fishSpecies)
         {
-            if(caughtFish.Contains(fish)){
-                continue;
-            }
-            else{
-                GameObject inventoryItem = Instantiate(inventoryPrefab, transform);
-                inventoryItem.GetComponent<Image>().sprite = fish.fishImage;
-            }
+            GameObject inventoryItem = Instantiate(inventoryPrefab, transform);
+            inventoryItem.GetComponent<Image>().sprite = fish.fishImage;
         }
 
     }
