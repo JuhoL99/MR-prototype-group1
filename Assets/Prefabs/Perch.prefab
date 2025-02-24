@@ -260,10 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishGrabInteractable: {fileID: 1512395989293244867}
+  species: {fileID: 0}
   InventoryElement: {fileID: 0}
-  uiLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   inventoryManager: {fileID: 0}
 --- !u!54 &5297330048835052939
 Rigidbody:

@@ -21,3 +21,4 @@ MonoBehaviour:
   maxWeight: 2.5
   minLength: 0.2
   maxLength: 0.5
+  fishImage: {fileID: 1620698649, guid: b3837ee727f59104ead84c0ea0e5ecd2, type: 3}
